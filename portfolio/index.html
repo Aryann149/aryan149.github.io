@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aryan Ratnani | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ── Internship Badge ── */
+        .internship-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 212, 255, 0.08);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 999px;
+            padding: 8px 20px;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #00d4ff;
+            margin-bottom: 1.5rem;
+        }
+
+        .badge-dot {
+            width: 7px;
+            height: 7px;
+            background: #00d4ff;
+            border-radius: 50%;
+            animation: pulse-dot 2s ease-in-out infinite;
+            flex-shrink: 0;
+        }
+
+        @keyframes pulse-dot {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.4;
+                transform: scale(0.7);
+            }
+        }
+
+        /* ── Project Tech Line ── */
+        .project-tech {
+            font-size: 0.82rem;
+            color: #00d4ff;
+            letter-spacing: 0.05em;
+            margin-top: 0.5rem;
+            opacity: 0.8;
+        }
+
+        /* ── Hamburger Button ── */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 36px;
+            height: 36px;
+            cursor: none;
+            background: none;
+            border: none;
+            padding: 4px;
+            z-index: 200;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 1px;
+            background: #ffffff;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transform-origin: center;
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform: translateY(6px) rotate(45deg);
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform: translateY(-6px) rotate(-45deg);
+        }
+
+        /* ── Mobile Nav Overlay ── */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(17, 24, 32, 0.98);
+            z-index: 150;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2.5rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .mobile-nav.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .mobile-nav a {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 8vw, 3.5rem);
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            letter-spacing: -0.02em;
+        }
+
+        .mobile-nav a:hover {
+            color: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .mobile-nav {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <div class="noise-overlay"></div>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#top" class="smooth-scroll mobile-link">Home</a>
+        <a href="#about" class="smooth-scroll mobile-link">About</a>
+        <a href="#projects" class="smooth-scroll mobile-link">Projects</a>
+        <a href="#resume" class="smooth-scroll mobile-link">Resume</a>
+        <a href="https://github.com/Aryann149" target="_blank">Github</a>
+        <a href="https://www.linkedin.com/in/aryan-ratnani" target="_blank">LinkedIn</a>
+    </div>
+
+    <nav class="navbar reveal">
+        <a href="#top" class="logo hover-target smooth-scroll">AR.</a>
+        <div class="nav-links">
+            <a href="#top" class="hover-target smooth-scroll">Home</a>
+            <a href="#about" class="hover-target smooth-scroll">About</a>
+            <a href="#projects" class="hover-target smooth-scroll">Projects</a>
+            <a href="https://github.com/Aryann149" target="_blank" class="hover-target">Github</a>
+            <a href="https://www.linkedin.com/in/aryan-ratnani" target="_blank" class="hover-target">LinkedIn</a>
+            <a href="#resume" class="hover-target smooth-scroll">Resume</a>
+        </div>
+        <button class="hamburger hover-target" id="hamburgerBtn" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <main data-scroll-container>
+
+        <!-- Hero Section -->
+        <section class="hero" id="top">
+            <div class="hero-content reveal">
+                <div class="internship-badge">
+                    <span class="badge-dot"></span>
+                    Open to Internships — Mumbai / Remote
+                </div>
+                <p class="subtitle">PORTFOLIO</p>
+                <h1 class="title">Aryan Ratnani</h1>
+                <p class="description">
+                    MCA Student & Web Developer crafting real-world,<br> deployed applications that actually work.
+                </p>
+                <a href="#about" class="scroll-down hover-target">Scroll to explore</a>
+            </div>
+
+            <div class="abstract-shape shape-1"></div>
+            <div class="abstract-shape shape-2"></div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about section-pad" id="about">
+            <div class="content-wrapper">
+                <h2 class="section-heading reveal">About Me</h2>
+
+                <div class="about-grid">
+                    <div class="about-text reveal">
+                        <p>
+                            Hey! I'm Aryan, an MCA student at Amity University Mumbai with a BCA background. I enjoy
+                            building real-world web applications — from AI-powered price trackers to real-time music
+                            sync platforms.
+                        </p>
+                        <p>
+                            I'm comfortable across the full stack, working with React, Node.js, Firebase and Python. I
+                            care about writing clean code that actually solves problems, not just looks good on paper.
+                            Currently looking for a web development internship where I can contribute and keep growing.
+                        </p>
+                    </div>
+
+                    <div class="skills-text reveal">
+                        <h3 class="subsection-heading">Core Stack</h3>
+                        <p class="skills-list">
+                            React.js &nbsp;•&nbsp; Node.js &nbsp;•&nbsp; Firebase &nbsp;•&nbsp; Python &nbsp;•&nbsp;
+                            Full Stack Development
+                        </p>
+
+                        <h3 class="subsection-heading">Currently</h3>
+                        <p>Pursuing MCA at Amity University Mumbai. Building and deploying full-stack projects,
+                            exploring modern web technologies, and actively seeking internship opportunities.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Resume Section -->
+        <section class="resume section-pad" id="resume">
+            <div class="content-wrapper">
+                <h2 class="section-heading reveal">Experience & Education</h2>
+
+                <div class="resume-grid">
+                    <div class="resume-column reveal">
+                        <h3 class="subsection-heading">Projects & Work</h3>
+
+                        <div class="resume-item hover-target">
+                            <div class="resume-meta">
+                                <span class="resume-date">2025 — Present</span>
+                                <span class="resume-role">Personal Projects</span>
+                            </div>
+                            <h4 class="resume-company">Independent Developer</h4>
+                            <p class="resume-desc">Building and deploying full-stack web applications independently —
+                                including an AI-powered price tracker and a real-time music sync platform, both live on
+                                the internet.</p>
+                        </div>
+
+                        <div class="resume-item hover-target">
+                            <div class="resume-meta">
+                                <span class="resume-date">2022 — 2025</span>
+                                <span class="resume-role">Academic Projects</span>
+                            </div>
+                            <h4 class="resume-company">BCA Projects</h4>
+                            <p class="resume-desc">Built a facial recognition attendance system using Python and
+                                MongoDB, and a desktop password vault with cryptographic hashing — both functional,
+                                real-world tools.</p>
+                        </div>
+                    </div>
+
+                    <div class="resume-column reveal">
+                        <h3 class="subsection-heading">Academic Background</h3>
+
+                        <div class="resume-item hover-target">
+                            <div class="resume-meta">
+                                <span class="resume-date">2025 — 2027</span>
+                                <span class="resume-role">Pursuing</span>
+                            </div>
+                            <h4 class="resume-company">Master of Computer Applications</h4>
+                            <p class="resume-desc">Amity University Mumbai. Specialization in Information Technology.
+                                Deepening expertise in full-stack development, algorithms, and modern software
+                                engineering.</p>
+                        </div>
+
+                        <div class="resume-item hover-target">
+                            <div class="resume-meta">
+                                <span class="resume-date">2022 — 2025</span>
+                                <span class="resume-role">Grade A</span>
+                            </div>
+                            <h4 class="resume-company">BBA (Computer Applications)</h4>
+                            <p class="resume-desc">Savitribai Phule Pune University. Covered core computer science
+                                subjects including web technologies, databases, data structures, and software
+                                development.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resume-download reveal">
+                    <a href="resume.pdf" target="_blank" class="download-btn hover-target">Download Resume / CV
+                        &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects section-pad">
+            <div class="content-wrapper">
+                <h2 class="section-heading reveal">Selected Works</h2>
+
+                <div class="project-list">
+
+                    <a href="https://github.com/Aryann149/price-tracker" target="_blank"
+                        class="project-item hover-target reveal">
+                        <div class="project-top">
+                            <span class="project-index">01</span>
+                            <span class="project-year">2026</span>
+                        </div>
+                        <h3 class="project-title">Price Tracker</h3>
+                        <p class="project-tech">React.js · Node.js · Supabase · Google Gemini API · Vercel</p>
+                        <p class="project-desc">AI-powered full-stack app that monitors product prices across Amazon &
+                            Flipkart with email alerts, cron jobs, and price history charts.</p>
+                        <div class="project-line"></div>
+                    </a>
+
+                    <a href="https://celebrated-elf-9d7c08.netlify.app/" target="_blank"
+                        class="project-item hover-target reveal">
+                        <div class="project-top">
+                            <span class="project-index">02</span>
+                            <span class="project-year">2025</span>
+                        </div>
+                        <h3 class="project-title">SyncBeats</h3>
+                        <p class="project-tech">JavaScript · Firebase · YouTube IFrame API · Netlify</p>
+                        <p class="project-desc">Real-time music & video sync web app — create a room, share a code, and
+                            watch YouTube videos perfectly in sync with a friend from anywhere.</p>
+                        <div class="project-line"></div>
+                    </a>
+
+                    <a href="https://github.com/Aryann149" target="_blank" class="project-item hover-target reveal">
+                        <div class="project-top">
+                            <span class="project-index">03</span>
+                            <span class="project-year">2024</span>
+                        </div>
+                        <h3 class="project-title">Attendance System</h3>
+                        <p class="project-tech">Python · OpenCV · Tkinter · MongoDB Atlas</p>
+                        <p class="project-desc">Facial recognition desktop app that automates student attendance by
+                            scanning and matching faces against a cloud database. Auto-generates Excel reports.</p>
+                        <div class="project-line"></div>
+                    </a>
+
+                    <a href="https://github.com/Aryann149" target="_blank" class="project-item hover-target reveal">
+                        <div class="project-top">
+                            <span class="project-index">04</span>
+                            <span class="project-year">2023</span>
+                        </div>
+                        <h3 class="project-title">Password Vault</h3>
+                        <p class="project-tech">Python · Tkinter · Cryptographic Hashing</p>
+                        <p class="project-desc">Secure desktop password manager with local encrypted storage using
+                            cryptographic hashing. Your credentials never leave your device.</p>
+                        <div class="project-line"></div>
+                    </a>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer section-pad">
+            <div class="content-wrapper reveal">
+                <h2 class="contact-heading">Let's build something together.</h2>
+                <a href="mailto:ratnaniaryan@gmail.com" class="big-mail hover-target">Get in touch</a>
+
+                <div class="footer-bottom">
+                    <span class="copyright">&copy; 2026 Aryan Ratnani</span>
+                    <span class="credit">Built with passion.</span>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        hamburgerBtn.addEventListener('click', () => {
+            hamburgerBtn.classList.toggle('open');
+            mobileNav.classList.toggle('open');
+            document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                hamburgerBtn.classList.remove('open');
+                mobileNav.classList.remove('open');
+                document.body.style.overflow = '';
+                const targetId = link.getAttribute('href').substring(1);
+                const target = document.getElementById(targetId);
+                setTimeout(() => {
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    } else {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                }, 300);
+            });
+        });
+    </script>
+</body>
+
+</html>

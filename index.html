@@ -1,412 +1,356 @@
 <!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aryan Ratnani | Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* ── Internship Badge ── */
-        .internship-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(0, 212, 255, 0.08);
-            border: 1px solid rgba(0, 212, 255, 0.3);
-            border-radius: 999px;
-            padding: 8px 20px;
-            font-size: 0.78rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: #00d4ff;
-            margin-bottom: 1.5rem;
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ARYAN RATNANI • Digital Architect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-tint": "#00d2ff",
+                      "primary": "#00d2ff",
+                      "primary-container": "#00e5ff",
+                      "on-primary-container": "#001f24",
+                      "background": "#0a0f14",
+                      "surface": "#0e141a",
+                      "surface-container": "#151b23",
+                      "surface-container-high": "#1d242d",
+                      "surface-container-highest": "#28313a",
+                      "on-surface": "#f0f4f8",
+                      "on-surface-variant": "#94a3b8",
+                      "outline": "#475569",
+                      "outline-variant": "#334155",
+                      "tertiary": "#ffd700",
+                      "on-tertiary": "#332b00",
+                      "tertiary-container": "#eab308",
+                      "on-tertiary-container": "#1a1600"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "1rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Noto Serif", "serif"],
+                      "body": ["Manrope", "sans-serif"],
+                      "label": ["Manrope", "sans-serif"]
+              }
+            },
+          },
         }
-
-        .badge-dot {
-            width: 7px;
-            height: 7px;
-            background: #00d4ff;
-            border-radius: 50%;
-            animation: pulse-dot 2s ease-in-out infinite;
-            flex-shrink: 0;
-        }
-
-        @keyframes pulse-dot {
-
-            0%,
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-
-            50% {
-                opacity: 0.4;
-                transform: scale(0.7);
-            }
-        }
-
-        /* ── Project Tech Line ── */
-        .project-tech {
-            font-size: 0.82rem;
-            color: #00d4ff;
-            letter-spacing: 0.05em;
-            margin-top: 0.5rem;
-            opacity: 0.8;
-        }
-
-        /* ── Hamburger Button ── */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            justify-content: center;
-            gap: 5px;
-            width: 36px;
-            height: 36px;
-            cursor: none;
-            background: none;
-            border: none;
-            padding: 4px;
-            z-index: 200;
-        }
-
-        .hamburger span {
-            display: block;
-            width: 100%;
-            height: 1px;
-            background: #ffffff;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            transform-origin: center;
-        }
-
-        .hamburger.open span:nth-child(1) {
-            transform: translateY(6px) rotate(45deg);
-        }
-
-        .hamburger.open span:nth-child(2) {
-            opacity: 0;
-            transform: scaleX(0);
-        }
-
-        .hamburger.open span:nth-child(3) {
-            transform: translateY(-6px) rotate(-45deg);
-        }
-
-        /* ── Mobile Nav Overlay ── */
-        .mobile-nav {
-            display: none;
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .font-serif { font-family: 'Noto Serif', serif; }
+        .glass { background: rgba(14, 20, 26, 0.8); backdrop-filter: blur(16px); }
+        .noise-overlay {
             position: fixed;
-            inset: 0;
-            background: rgba(17, 24, 32, 0.98);
-            z-index: 150;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 2.5rem;
-            opacity: 0;
+            top: 0; left: 0; width: 100%; height: 100%;
             pointer-events: none;
-            transition: opacity 0.4s ease;
+            opacity: 0.02;
+            background: url("https://grainy-gradients.vercel.app/noise.svg");
+            z-index: 9999;
         }
-
-        .mobile-nav.open {
-            opacity: 1;
-            pointer-events: all;
+        .text-glow {
+            text-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
         }
-
-        .mobile-nav a {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 8vw, 3.5rem);
-            color: rgba(255, 255, 255, 0.5);
-            text-decoration: none;
-            transition: color 0.3s ease;
-            letter-spacing: -0.02em;
-        }
-
-        .mobile-nav a:hover {
-            color: #ffffff;
-        }
-
-        @media (max-width: 768px) {
-            .hamburger {
-                display: flex;
-            }
-
-            .mobile-nav {
-                display: flex;
-            }
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
-
-<body>
-
-    <!-- Custom Cursor -->
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
-
-    <div class="noise-overlay"></div>
-
-    <!-- Mobile Navigation Overlay -->
-    <div class="mobile-nav" id="mobileNav">
-        <a href="#top" class="smooth-scroll mobile-link">Home</a>
-        <a href="#about" class="smooth-scroll mobile-link">About</a>
-        <a href="#projects" class="smooth-scroll mobile-link">Projects</a>
-        <a href="#resume" class="smooth-scroll mobile-link">Resume</a>
-        <a href="https://github.com/Aryann149" target="_blank">Github</a>
-        <a href="https://www.linkedin.com/in/aryan-ratnani" target="_blank">LinkedIn</a>
-    </div>
-
-    <nav class="navbar reveal">
-        <a href="#top" class="logo hover-target smooth-scroll">AR.</a>
-        <div class="nav-links">
-            <a href="#top" class="hover-target smooth-scroll">Home</a>
-            <a href="#about" class="hover-target smooth-scroll">About</a>
-            <a href="#projects" class="hover-target smooth-scroll">Projects</a>
-            <a href="https://github.com/Aryann149" target="_blank" class="hover-target">Github</a>
-            <a href="https://www.linkedin.com/in/aryan-ratnani" target="_blank" class="hover-target">LinkedIn</a>
-            <a href="#resume" class="hover-target smooth-scroll">Resume</a>
-        </div>
-        <button class="hamburger hover-target" id="hamburgerBtn" aria-label="Toggle menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </nav>
-
-    <main data-scroll-container>
-
-        <!-- Hero Section -->
-        <section class="hero" id="top">
-            <div class="hero-content reveal">
-                <div class="internship-badge">
-                    <span class="badge-dot"></span>
-                    Open to Internships — Mumbai / Remote
-                </div>
-                <p class="subtitle">PORTFOLIO</p>
-                <h1 class="title">Aryan Ratnani</h1>
-                <p class="description">
-                    MCA Student & Web Developer crafting real-world,<br> deployed applications that actually work.
+<body class="bg-background text-on-surface selection:bg-primary/30 selection:text-primary-container">
+<div class="noise-overlay"></div>
+<!-- Navigation -->
+<header class="fixed top-0 w-full z-50 glass border-b border-outline-variant/10">
+<nav class="flex justify-between items-center px-6 md:px-12 py-5 w-full max-w-screen-2xl mx-auto">
+<a class="font-serif text-xl font-bold text-white tracking-tighter uppercase" href="#">ARYAN RATNANI</a>
+<div class="hidden md:flex items-center gap-10 font-serif text-slate-300 uppercase tracking-widest text-[10px] font-bold">
+<a class="hover:text-primary transition-all duration-300" href="#work">Work</a>
+<a class="hover:text-primary transition-all duration-300" href="#experience">Experience</a>
+<a class="hover:text-primary transition-all duration-300" href="#education">Education</a>
+<a class="hover:text-primary transition-all duration-300" href="#stack">Stack</a>
+</div>
+<a href="/resume.pdf" download
+   class="bg-primary text-on-primary-container px-6 py-2 rounded-sm text-[11px] font-black uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all">
+    Resume
+</a>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="min-h-screen flex flex-col justify-center px-6 md:px-12 pt-32 pb-24 max-w-screen-2xl mx-auto relative overflow-hidden">
+<div class="absolute -top-20 -right-20 w-[600px] h-[600px] bg-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
+<div class="absolute top-40 right-12 opacity-5 pointer-events-none select-none hidden lg:block">
+<span class="font-serif italic text-[22rem] leading-none text-white">01</span>
+</div>
+<div class="relative z-10">
+<div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-surface-container border border-outline-variant/30 mb-12">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+<span class="text-[10px] font-black tracking-[0.2em] uppercase text-on-surface-variant">Open to Internships — Mumbai / Remote</span>
+</div>
+<h1 class="font-serif text-7xl md:text-[10rem] font-bold tracking-tighter text-white leading-[0.85] mb-6">
+                ARYAN <br/> RATNANI
+            </h1>
+<h2 class="font-serif text-3xl md:text-5xl italic text-primary tracking-tight mb-12 text-glow">
+                Digital Architect
+            </h2>
+<div class="max-w-2xl">
+<p class="text-xl md:text-2xl text-on-surface-variant font-light leading-relaxed">
+                    MCA Student &amp; Web Developer crafting <span class="text-white font-semibold italic">real-world, deployed applications</span> that bridge the gap between complex logic and seamless user experience.
                 </p>
-                <a href="#about" class="scroll-down hover-target">Scroll to explore</a>
-            </div>
-
-            <div class="abstract-shape shape-1"></div>
-            <div class="abstract-shape shape-2"></div>
-        </section>
-
-        <!-- About Section -->
-        <section class="about section-pad" id="about">
-            <div class="content-wrapper">
-                <h2 class="section-heading reveal">About Me</h2>
-
-                <div class="about-grid">
-                    <div class="about-text reveal">
-                        <p>
-                            Hey! I'm Aryan, an MCA student at Amity University Mumbai with a BCA background. I enjoy
-                            building real-world web applications — from AI-powered price trackers to real-time music
-                            sync platforms.
+</div>
+<div class="mt-16 flex gap-6">
+<a class="group flex items-center gap-4 font-black tracking-[0.2em] uppercase text-xs text-primary hover:text-white transition-all" href="#work">
+                    View Portfolio 
+                    <span class="material-symbols-outlined transition-transform group-hover:translate-x-2 text-xl">arrow_right_alt</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Selected Works -->
+<section class="py-32 px-6 md:px-12 bg-surface" id="work">
+<div class="max-w-screen-2xl mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
+<div>
+<span class="text-tertiary font-black tracking-[0.4em] uppercase text-[10px] mb-4 block">Archive 2024-25</span>
+<h2 class="font-serif text-6xl md:text-8xl font-bold tracking-tighter text-white">Selected Works</h2>
+</div>
+<p class="text-on-surface-variant max-w-sm text-lg italic leading-relaxed">
+                    A curation of full-stack engineering, research-driven development, and human-centric design.
+                </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Price Tracker -->
+<div class="md:col-span-8 group relative overflow-hidden bg-surface-container border border-outline-variant/20 hover:border-primary/40 transition-all duration-500">
+<div class="p-8 md:p-12 flex flex-col h-full justify-between min-h-[450px]">
+<div>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="bg-surface-container-highest px-3 py-1 text-[9px] font-black uppercase tracking-widest text-on-surface-variant">Full-Stack</span>
+<span class="bg-tertiary px-3 py-1 text-[9px] font-black uppercase tracking-widest text-on-tertiary">AI-Powered</span>
+</div>
+<h3 class="font-serif text-4xl md:text-5xl font-bold mb-6 text-white group-hover:text-primary transition-colors">Price Tracker</h3>
+<p class="text-on-surface-variant text-lg max-w-md leading-relaxed">
+                                Intelligent monitoring system for Amazon &amp; Flipkart. Leveraging Gemini AI for predictive insights and Supabase for real-time tracking of product price fluctuations.
+                            </p>
+</div>
+<div class="mt-12 flex items-center justify-between">
+<div class="flex gap-6 text-[10px] font-black uppercase tracking-widest text-outline">
+<span>React</span>
+<span>Node.js</span>
+<span>Supabase</span>
+</div>
+<span class="material-symbols-outlined text-4xl text-primary opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all">north_east</span>
+</div>
+</div>
+</div>
+<!-- SyncBeats -->
+<div class="md:col-span-4 group relative overflow-hidden bg-surface-container border border-outline-variant/20 hover:border-primary/40 transition-all duration-500">
+<div class="p-8 flex flex-col h-full min-h-[450px]">
+<span class="bg-surface-container-highest self-start px-3 py-1 text-[9px] font-black uppercase tracking-widest text-on-surface-variant mb-8">Real-Time</span>
+<h3 class="font-serif text-3xl font-bold mb-4 text-white group-hover:text-primary transition-colors">SyncBeats</h3>
+<p class="text-on-surface-variant leading-relaxed mb-12">
+                            Collaborative media hub for real-time music and video synchronization across distributed users using Firebase.
                         </p>
-                        <p>
-                            I'm comfortable across the full stack, working with React, Node.js, Firebase and Python. I
-                            care about writing clean code that actually solves problems, not just looks good on paper.
-                            Currently looking for a web development internship where I can contribute and keep growing.
+<div class="mt-auto flex items-center justify-between">
+<div class="flex gap-4 text-[10px] font-black uppercase tracking-widest text-outline">
+<span>Firebase</span>
+<span>API</span>
+</div>
+<span class="material-symbols-outlined text-3xl text-primary opacity-0 group-hover:opacity-100 transition-all">play_arrow</span>
+</div>
+</div>
+</div>
+<!-- Kloset -->
+<div class="md:col-span-12 group relative overflow-hidden bg-surface-container border border-outline-variant/20 hover:border-primary/40 transition-all duration-500">
+<div class="p-8 md:p-12">
+<div class="flex flex-col lg:flex-row gap-16 items-center">
+<div class="lg:w-1/2">
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="bg-surface-container-highest px-3 py-1 text-[9px] font-black uppercase tracking-widest text-on-surface-variant">Fashion Tech</span>
+<span class="bg-primary px-3 py-1 text-[9px] font-black uppercase tracking-widest text-on-primary-container">Interactive</span>
+</div>
+<h3 class="font-serif text-5xl md:text-6xl font-bold mb-8 text-white group-hover:text-primary transition-colors">Kloset</h3>
+<p class="text-on-surface-variant text-xl leading-relaxed mb-10">
+                                    AI-Powered Virtual Wardrobe. An interactive app that helps users organize clothes and discover outfit combinations through a dynamic, animated interface. Suggests outfits based on mood, occasion, and weather.
+                                </p>
+<div class="flex flex-wrap gap-6 text-[10px] font-black uppercase tracking-widest text-outline">
+<span>React.js</span>
+<span>Tailwind CSS</span>
+<span>AI/ML Logic</span>
+<span>Framer Motion</span>
+</div>
+</div>
+<div class="lg:w-1/2 w-full aspect-video bg-surface-container-high overflow-hidden relative">
+<img alt="Kloset AI Wardrobe" class="w-full h-full object-cover opacity-40 grayscale group-hover:grayscale-0 group-hover:opacity-90 group-hover:scale-105 transition-all duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzlu23HVuPRniktjPji_VX-nvSlHkYN8j-k5RA5j_7rPnr7TADEHYehZ3BmcfWV2m9HNjzkhFVWtaqpJhtz4ue8Hu-VaOSAvlq___-DNVV9q9L4XlZfzHmABUSkILE9JdrhEtlguoqhJY_AOsrsjtLQFF2xs2-bOaHsPT_70mh5AiDrthkUgCcZ1oM3FRGCdeXxOMcFzdBcL5upuiQ2_gkHYR9G918iT8RDcJKPtrdOc7NK_WA3zR2dBPrD-TdtGq7nzEVIWojg947"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Attendance System -->
+<div class="md:col-span-6 group relative overflow-hidden bg-surface-container border border-outline-variant/20 hover:border-primary/40 transition-all duration-500">
+<div class="aspect-video relative overflow-hidden border-b border-outline-variant/20">
+<img alt="Attendance System" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOMdKOQPicvsiHHMjrD18HAtixYX87z2Jm6RdFu_akf4OkK-VSXaElPzPh84_WY9JM8ZsP7qv5QhB2c5xAPgseFtBHs9KT7EqMn-ykS51fGpYBVXkIDkIgkLowL7s8Ndl6RSV2CB4wF_V5IHuxikQyvVBiHfkj_SC5hhYQhp5o-6NZYh8KUi_5HjXdwMH0H6nlCbBFOwOBU_BhawjCkmIkxsRnnWooY5MTfx7nWwX3OXe99nVh4qQOH1qjGJPnOzijhnmOkBEtCGUo"/>
+</div>
+<div class="p-8 md:p-10">
+<h3 class="font-serif text-3xl font-bold mb-4 text-white group-hover:text-primary transition-colors">Attendance System</h3>
+<p class="text-on-surface-variant leading-relaxed mb-8">Biometric facial recognition application for streamlined institutional attendance management using Python and OpenCV.</p>
+<div class="flex gap-4 text-[10px] font-black uppercase tracking-widest text-outline">
+<span>OpenCV</span>
+<span>Python</span>
+<span>MongoDB</span>
+</div>
+</div>
+</div>
+<!-- Password Vault -->
+<div class="md:col-span-6 group relative overflow-hidden bg-surface-container border border-outline-variant/20 hover:border-primary/40 transition-all duration-500">
+<div class="aspect-video relative overflow-hidden border-b border-outline-variant/20">
+<img alt="Password Vault" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPI14h6Tlw28ArBBDXZU45eM_RXqj54KWcfVeo5ilGaQoFPS6-WqMqeGQ0p6kBszX4tl8GZbEJ7IgCs6SE9TiymELT7uzp3QufKr8knxrbo15iFaI-tALkswo2rqJtv0oSg6kOsswnm-Ih6vflgGdwzAiZDhJEySeMJJFrbyJQAe6JgRl--2scwwV4m4zj-BGS_Sh33_IheOACXvweh7onKTB2MEp13kK9J58N4HCpVV__LPS3WzuSzvpUSHWBSSVtIns0ozsfAMbW"/>
+</div>
+<div class="p-8 md:p-10">
+<h3 class="font-serif text-3xl font-bold mb-4 text-white group-hover:text-primary transition-colors">Password Vault</h3>
+<p class="text-on-surface-variant leading-relaxed mb-8">Secure desktop manager with end-to-end cryptographic hashing, ensuring data integrity and user privacy for local storage.</p>
+<div class="flex gap-4 text-[10px] font-black uppercase tracking-widest text-outline">
+<span>Python</span>
+<span>Cryptography</span>
+<span>SQLite</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Experience & Education -->
+<section class="py-32 px-6 md:px-12 relative overflow-hidden" id="experience">
+<div class="max-w-screen-2xl mx-auto flex flex-col lg:flex-row gap-24">
+<!-- Experience -->
+<div class="lg:w-1/2">
+<span class="text-tertiary font-black tracking-[0.4em] uppercase text-[10px] mb-12 block">Professional Journey</span>
+<div class="space-y-16">
+<div class="group relative">
+<div class="flex items-start justify-between mb-6">
+<h4 class="font-serif text-3xl font-bold text-white group-hover:text-primary transition-colors">Independent Developer</h4>
+<span class="text-[10px] font-black uppercase tracking-widest text-primary/60 mt-2">2025—Present</span>
+</div>
+<p class="text-on-surface-variant text-lg leading-relaxed border-l border-outline-variant/30 pl-8">
+                            Crafting custom digital solutions for clients, focusing on architectural scalability and user-centric design. Leading full-stack lifecycles from ideation to production-ready deployment.
                         </p>
-                    </div>
-
-                    <div class="skills-text reveal">
-                        <h3 class="subsection-heading">Core Stack</h3>
-                        <p class="skills-list">
-                            React.js &nbsp;•&nbsp; Node.js &nbsp;•&nbsp; Firebase &nbsp;•&nbsp; Python &nbsp;•&nbsp;
-                            Full Stack Development
+</div>
+<div class="group relative">
+<div class="flex items-start justify-between mb-6">
+<h4 class="font-serif text-3xl font-bold text-white group-hover:text-primary transition-colors">BCA Projects</h4>
+<span class="text-[10px] font-black uppercase tracking-widest text-primary/60 mt-2">2022—2025</span>
+</div>
+<p class="text-on-surface-variant text-lg leading-relaxed border-l border-outline-variant/30 pl-8">
+                            Development of core foundational applications during undergraduate studies, including the Attendance System and Security Tools. Specialized in blending hardware logic with software interfaces.
                         </p>
-
-                        <h3 class="subsection-heading">Currently</h3>
-                        <p>Pursuing MCA at Amity University Mumbai. Building and deploying full-stack projects,
-                            exploring modern web technologies, and actively seeking internship opportunities.</p>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Resume Section -->
-        <section class="resume section-pad" id="resume">
-            <div class="content-wrapper">
-                <h2 class="section-heading reveal">Experience & Education</h2>
-
-                <div class="resume-grid">
-                    <div class="resume-column reveal">
-                        <h3 class="subsection-heading">Projects & Work</h3>
-
-                        <div class="resume-item hover-target">
-                            <div class="resume-meta">
-                                <span class="resume-date">2025 — Present</span>
-                                <span class="resume-role">Personal Projects</span>
-                            </div>
-                            <h4 class="resume-company">Independent Developer</h4>
-                            <p class="resume-desc">Building and deploying full-stack web applications independently —
-                                including an AI-powered price tracker and a real-time music sync platform, both live on
-                                the internet.</p>
-                        </div>
-
-                        <div class="resume-item hover-target">
-                            <div class="resume-meta">
-                                <span class="resume-date">2022 — 2025</span>
-                                <span class="resume-role">Academic Projects</span>
-                            </div>
-                            <h4 class="resume-company">BCA Projects</h4>
-                            <p class="resume-desc">Built a facial recognition attendance system using Python and
-                                MongoDB, and a desktop password vault with cryptographic hashing — both functional,
-                                real-world tools.</p>
-                        </div>
-                    </div>
-
-                    <div class="resume-column reveal">
-                        <h3 class="subsection-heading">Academic Background</h3>
-
-                        <div class="resume-item hover-target">
-                            <div class="resume-meta">
-                                <span class="resume-date">2025 — 2027</span>
-                                <span class="resume-role">Pursuing</span>
-                            </div>
-                            <h4 class="resume-company">Master of Computer Applications</h4>
-                            <p class="resume-desc">Amity University Mumbai. Specialization in Information Technology.
-                                Deepening expertise in full-stack development, algorithms, and modern software
-                                engineering.</p>
-                        </div>
-
-                        <div class="resume-item hover-target">
-                            <div class="resume-meta">
-                                <span class="resume-date">2022 — 2025</span>
-                                <span class="resume-role">Grade A</span>
-                            </div>
-                            <h4 class="resume-company">BBA (Computer Applications)</h4>
-                            <p class="resume-desc">Savitribai Phule Pune University. Covered core computer science
-                                subjects including web technologies, databases, data structures, and software
-                                development.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="resume-download reveal">
-                    <a href="resume.pdf" target="_blank" class="download-btn hover-target">Download Resume / CV
-                        &rarr;</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="projects section-pad">
-            <div class="content-wrapper">
-                <h2 class="section-heading reveal">Selected Works</h2>
-
-                <div class="project-list">
-
-                    <a href="https://github.com/Aryann149/price-tracker" target="_blank"
-                        class="project-item hover-target reveal">
-                        <div class="project-top">
-                            <span class="project-index">01</span>
-                            <span class="project-year">2026</span>
-                        </div>
-                        <h3 class="project-title">Price Tracker</h3>
-                        <p class="project-tech">React.js · Node.js · Supabase · Google Gemini API · Vercel</p>
-                        <p class="project-desc">AI-powered full-stack app that monitors product prices across Amazon &
-                            Flipkart with email alerts, cron jobs, and price history charts.</p>
-                        <div class="project-line"></div>
-                    </a>
-
-                    <a href="https://celebrated-elf-9d7c08.netlify.app/" target="_blank"
-                        class="project-item hover-target reveal">
-                        <div class="project-top">
-                            <span class="project-index">02</span>
-                            <span class="project-year">2025</span>
-                        </div>
-                        <h3 class="project-title">SyncBeats</h3>
-                        <p class="project-tech">JavaScript · Firebase · YouTube IFrame API · Netlify</p>
-                        <p class="project-desc">Real-time music & video sync web app — create a room, share a code, and
-                            watch YouTube videos perfectly in sync with a friend from anywhere.</p>
-                        <div class="project-line"></div>
-                    </a>
-
-                    <a href="https://github.com/Aryann149" target="_blank" class="project-item hover-target reveal">
-                        <div class="project-top">
-                            <span class="project-index">03</span>
-                            <span class="project-year">2024</span>
-                        </div>
-                        <h3 class="project-title">Attendance System</h3>
-                        <p class="project-tech">Python · OpenCV · Tkinter · MongoDB Atlas</p>
-                        <p class="project-desc">Facial recognition desktop app that automates student attendance by
-                            scanning and matching faces against a cloud database. Auto-generates Excel reports.</p>
-                        <div class="project-line"></div>
-                    </a>
-
-                    <a href="https://github.com/Aryann149" target="_blank" class="project-item hover-target reveal">
-                        <div class="project-top">
-                            <span class="project-index">04</span>
-                            <span class="project-year">2023</span>
-                        </div>
-                        <h3 class="project-title">Password Vault</h3>
-                        <p class="project-tech">Python · Tkinter · Cryptographic Hashing</p>
-                        <p class="project-desc">Secure desktop password manager with local encrypted storage using
-                            cryptographic hashing. Your credentials never leave your device.</p>
-                        <div class="project-line"></div>
-                    </a>
-
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="footer section-pad">
-            <div class="content-wrapper reveal">
-                <h2 class="contact-heading">Let's build something together.</h2>
-                <a href="mailto:ratnaniaryan@gmail.com" class="big-mail hover-target">Get in touch</a>
-
-                <div class="footer-bottom">
-                    <span class="copyright">&copy; 2026 Aryan Ratnani</span>
-                    <span class="credit">Built with passion.</span>
-                </div>
-            </div>
-        </footer>
-
-    </main>
-
-    <script src="script.js"></script>
-    <script>
-        const hamburgerBtn = document.getElementById('hamburgerBtn');
-        const mobileNav = document.getElementById('mobileNav');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
-
-        hamburgerBtn.addEventListener('click', () => {
-            hamburgerBtn.classList.toggle('open');
-            mobileNav.classList.toggle('open');
-            document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
-        });
-
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                hamburgerBtn.classList.remove('open');
-                mobileNav.classList.remove('open');
-                document.body.style.overflow = '';
-                const targetId = link.getAttribute('href').substring(1);
-                const target = document.getElementById(targetId);
-                setTimeout(() => {
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    } else {
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }
-                }, 300);
-            });
-        });
-    </script>
-</body>
-
-</html>
+</div>
+</div>
+</div>
+<!-- Education -->
+<div class="lg:w-1/2 bg-surface-container p-10 md:p-16 border border-outline-variant/20 relative" id="education">
+<div class="absolute top-0 right-0 p-12 pointer-events-none opacity-5">
+<span class="material-symbols-outlined text-[10rem] text-primary" style="font-variation-settings: 'FILL' 1;">school</span>
+</div>
+<span class="text-tertiary font-black tracking-[0.4em] uppercase text-[10px] mb-12 block">Academic Foundation</span>
+<div class="space-y-16">
+<div>
+<span class="text-primary font-black text-[9px] uppercase tracking-[0.3em] block mb-4">Masters Degree</span>
+<h4 class="font-serif text-3xl font-bold text-white mb-2">Amity University Mumbai</h4>
+<p class="text-on-surface text-lg">MCA • Master of Computer Applications</p>
+<p class="text-on-surface-variant font-black text-[10px] uppercase tracking-widest mt-4 opacity-60">2025—2027 (Ongoing)</p>
+</div>
+<div class="pt-12 border-t border-outline-variant/20">
+<span class="text-primary font-black text-[9px] uppercase tracking-[0.3em] block mb-4">Bachelors Degree</span>
+<h4 class="font-serif text-3xl font-bold text-white mb-2">Savitribai Phule Pune University</h4>
+<p class="text-on-surface text-lg">BBA CA • Bachelor in Computer Application</p>
+<p class="text-on-surface-variant font-black text-[10px] uppercase tracking-widest mt-4 opacity-60">2022—2025 (Graduated)</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Core Stack -->
+<section class="py-32 bg-surface-container-highest/10" id="stack">
+<div class="max-w-screen-2xl mx-auto px-6 md:px-12">
+<div class="flex flex-col md:flex-row items-center justify-between mb-20 border-b border-outline-variant/20 pb-12">
+<h2 class="font-serif text-5xl md:text-7xl font-bold tracking-tighter text-white">Core Stack</h2>
+<div class="flex gap-4 mt-8 md:mt-0">
+<span class="material-symbols-outlined text-primary text-3xl">terminal</span>
+<span class="text-[11px] font-black uppercase tracking-[0.3em] text-outline-variant self-center">The Technical Arsenal</span>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-5 gap-8">
+<div class="group p-10 bg-surface-container border border-outline-variant/20 hover:border-primary/50 transition-all flex flex-col items-center gap-6">
+<div class="p-4 bg-background rounded-full group-hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors">javascript</span>
+</div>
+<span class="font-black tracking-[0.2em] text-[10px] uppercase text-white">React.js</span>
+</div>
+<div class="group p-10 bg-surface-container border border-outline-variant/20 hover:border-primary/50 transition-all flex flex-col items-center gap-6">
+<div class="p-4 bg-background rounded-full group-hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors">data_object</span>
+</div>
+<span class="font-black tracking-[0.2em] text-[10px] uppercase text-white">Node.js</span>
+</div>
+<div class="group p-10 bg-surface-container border border-outline-variant/20 hover:border-primary/50 transition-all flex flex-col items-center gap-6">
+<div class="p-4 bg-background rounded-full group-hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors">database</span>
+</div>
+<span class="font-black tracking-[0.2em] text-[10px] uppercase text-white">Firebase</span>
+</div>
+<div class="group p-10 bg-surface-container border border-outline-variant/20 hover:border-primary/50 transition-all flex flex-col items-center gap-6">
+<div class="p-4 bg-background rounded-full group-hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors">terminal</span>
+</div>
+<span class="font-black tracking-[0.2em] text-[10px] uppercase text-white">Python</span>
+</div>
+<div class="group p-10 bg-surface-container border border-outline-variant/20 hover:border-primary/50 transition-all flex flex-col items-center gap-6">
+<div class="p-4 bg-background rounded-full group-hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors">layers</span>
+</div>
+<span class="font-black tracking-[0.2em] text-[10px] uppercase text-white">Full Stack</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-40 px-6 md:px-12 flex flex-col items-center text-center relative overflow-hidden">
+<div class="absolute inset-0 bg-primary/5 blur-[150px] rounded-full pointer-events-none -bottom-1/2"></div>
+<span class="text-tertiary font-black tracking-[0.5em] uppercase text-[10px] mb-10 relative z-10">Ready to Build?</span>
+<h2 class="font-serif text-6xl md:text-[9rem] font-bold tracking-tighter mb-16 text-white leading-none relative z-10">Let's talk code.</h2>
+<div class="flex flex-col md:flex-row gap-8 relative z-10">
+<a class="px-14 py-6 bg-primary text-on-primary-container font-black tracking-[0.3em] uppercase text-[11px] hover:scale-105 active:scale-95 transition-all shadow-2xl shadow-primary/20" href="mailto:aryan@example.com">
+                Get In Touch
+            </a>
+<a href="/resume.pdf" download class="px-14 py-6 border border-outline-variant ...">
+    Download CV
+</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-16 border-t border-outline-variant/10 bg-background">
+<div class="flex flex-col md:flex-row justify-between items-center px-6 md:px-12 gap-10 w-full max-w-screen-2xl mx-auto">
+<div class="font-sans text-[10px] font-black uppercase tracking-[0.4em] text-outline">
+            © 2024 ARYAN RATNANI • DIGITAL ARCHITECT
+        </div>
+<div class="flex gap-12">
+<a class="text-[10px] font-black uppercase tracking-[0.3em] text-on-surface-variant hover:text-primary transition-colors" href="#">LinkedIn</a>
+<a class="text-[10px] font-black uppercase tracking-[0.3em] text-on-surface-variant hover:text-primary transition-colors" href="#">GitHub</a>
+<a class="text-[10px] font-black uppercase tracking-[0.3em] text-on-surface-variant hover:text-primary transition-colors" href="#">Twitter</a>
+</div>
+</div>
+</footer>
+</body></html>
